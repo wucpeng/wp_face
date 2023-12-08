@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.3)
 #set(CMAKE_CXX_FLAGS "-fpermissive -pg -DTX_VERSION")
-set(CMAKE_CXX_FLAGS "-fpermissive -pg")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp ")
+#set(CMAKE_CXX_FLAGS "-fpermissive -pg")
+set(CMAKE_CXX_FLAGS "-fpermissive -p -g -Wl,-rpath=../../libs/")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp ")
 SET(CMAKE_BUILD_TYPE Debug)
 # SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE) 
 # SET(CMAKE_INSTALL_RPATH "\${ORIGIN}/../../libs") #指定运行时动态库的加载路径,ORIGIN指运行文件所在目录
@@ -33,9 +34,9 @@ set(server_STAT_SRCS
   ${facedetectcnn_source}
   #${arcface_source}
 )
-#link_directories(../../libs)
-link_directories(./seeta/linux_so)
-link_directories(./arcface/linux_so)
+link_directories(../../libs)
+#link_directories(./seeta/linux_so)
+#link_directories(./arcface/linux_so)
 
 message(status " This is the server_share srcs:" ${server_STAT_SRCS})
 
